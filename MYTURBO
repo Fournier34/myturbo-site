@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTURBO - Agence Marketing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>MyTURBO</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#projects">Réalisations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn">Demander un devis</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Boostez votre business avec MyTURBO 🚀</h2>
+      <p>L’agence qui propulse votre visibilité grâce à des stratégies marketing sur-mesure.</p>
+      <a href="#contact" class="btn">Travaillons ensemble</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h3>Nos Services</h3>
+      <ul>
+        <li>✅ Stratégie marketing digitale</li>
+        <li>✅ Gestion des réseaux sociaux</li>
+        <li>✅ Branding & identité visuelle</li>
+        <li>✅ Création de contenu</li>
+        <li>✅ Référencement SEO/SEA</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>Qui sommes-nous ?</h3>
+      <p>MyTURBO est une agence créative et réactive dédiée à la croissance de votre marque en ligne. Nous mettons en œuvre des solutions sur mesure pour chaque client.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h3>Nos Réalisations</h3>
+      <p>Quelques projets que nous avons accompagnés (à venir).</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h3>Contactez-nous</h3>
+      <form>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 MyTURBO - Tous droits réservés</p>
+    </div>
+  </footer>
+
+</body>
+</html>
