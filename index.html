@@ -1,81 +1,346 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyTURBO - Agence Marketing</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyTurbo - Agence Digitale</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <style>
+    :root {
+      --primary-color: #ff6600;
+      --secondary-color: #2a3990;
+      --dark-color: #333;
+      --light-color: #f4f4f4;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: white;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .navbar {
+      background-color: #fff;
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      margin-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #2a3990 0%, #6366f1 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: white;
+      color: var(--secondary-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* SERVICES */
+    #services {
+      padding: 6rem 0;
+      background: var(--light-color);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #666;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-box h3 {
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    .service-list {
+      list-style: disc;
+      text-align: left;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-outline {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--secondary-color);
+      color: var(--secondary-color);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--secondary-color);
+      color: white;
+    }
+
+    /* BOUTON RETOUR EN HAUT */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #fff;
+      color: #2a3990;
+      border: 2px solid #2a3990;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      opacity: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+    }
+
+    #backToTop:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <header>
-    <div class="container">
-      <h1>MyTURBO</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#projects">Réalisations</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="#contact" class="btn">Demander un devis</a>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <div class="logo"><span>🚀</span>MyTurbo</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <h2>Boostez votre business avec MyTURBO 🚀</h2>
-      <p>L’agence qui propulse votre visibilité grâce à des stratégies marketing sur-mesure.</p>
-      <a href="#contact" class="btn">Travaillons ensemble</a>
+    <div class="hero-content">
+      <h1>Boostez votre présence digitale 🚀</h1>
+      <p>My Turbo, votre partenaire pour une transformation digitale réussie.</p>
+      <a href="#contact" class="cta-button">Contactez-nous</a>
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <h3>Nos Services</h3>
-      <ul>
-        <li>✅ Stratégie marketing digitale</li>
-        <li>✅ Gestion des réseaux sociaux</li>
-        <li>✅ Branding & identité visuelle</li>
-        <li>✅ Création de contenu</li>
-        <li>✅ Référencement SEO/SEA</li>
-      </ul>
+      <h2 class="section-title">Nos Services</h2>
+      <h3 class="section-subtitle">Parce que c’est toujours mieux si on vous les présente.</h3>
+      <div class="services-container">
+        <div class="service-box">
+          <h3>📸 Photo</h3>
+          <ul class="service-list">
+            <li>Portraits</li>
+            <li>Produits</li>
+            <li>Souvenirs</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+        <div class="service-box">
+          <h3>💻 Création de site internet</h3>
+          <ul class="service-list">
+            <li>Vitrine</li>
+            <li>Plateforme e-commerce</li>
+            <li>Hébergement et maintenance</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+        <div class="service-box">
+          <h3>🎉 Événementiel</h3>
+          <ul class="service-list">
+            <li>Afterworks et repas d'entreprise</li>
+            <li>Séminaires et congrès</li>
+            <li>Demande sur mesure</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+        <div class="service-box">
+          <h3>📱 Réseaux sociaux</h3>
+          <ul class="service-list">
+            <li>Création de contenu</li>
+            <li>Gestion de communauté</li>
+            <li>Social Ads</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+        <div class="service-box">
+          <h3>🎓 Formation</h3>
+          <ul class="service-list">
+            <li>WordPress</li>
+            <li>Réseaux sociaux</li>
+            <li>Outils CRM</li>
+            <li>Power BI</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+        <div class="service-box">
+          <h3>🎨 Graphisme</h3>
+          <ul class="service-list">
+            <li>Logo</li>
+            <li>Affiches</li>
+          </ul>
+          <a href="#contact" class="btn-outline">En savoir plus</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="container">
-      <h3>Qui sommes-nous ?</h3>
-      <p>MyTURBO est une agence créative et réactive dédiée à la croissance de votre marque en ligne. Nous mettons en œuvre des solutions sur mesure pour chaque client.</p>
-    </div>
-  </section>
+  <!-- BOUTON RETOUR EN HAUT -->
+  <button id="backToTop" title="Retour en haut">🚀</button>
 
-  <section id="projects">
-    <div class="container">
-      <h3>Nos Réalisations</h3>
-      <p>Quelques projets que nous avons accompagnés (à venir).</p>
-    </div>
-  </section>
+  <!-- SCRIPT -->
+  <script>
+    AOS.init({ duration: 800, once: true });
 
-  <section id="contact">
-    <div class="container">
-      <h3>Contactez-nous</h3>
-      <form>
-        <input type="text" placeholder="Nom" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </div>
-  </section>
+    const backToTopBtn = document.getElementById("backToTop");
 
-  <footer>
-    <div class="container">
-      <p>© 2025 MyTURBO - Tous droits réservés</p>
-    </div>
-  </footer>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
 
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
 </body>
 </html>
